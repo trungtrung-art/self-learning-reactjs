@@ -1,0 +1,14 @@
+.todoList{
+    font-family: 'Helvetica Neue',
+    Arial, 
+    Helvetica, 
+    sans-serif;
+    font-weight: 300;
+    font-size: 24px;
+    color: #4f4f4f;
+}
+
+.todoList-done{
+    text-decoration: line-through;
+    opacity: .2;
+}
