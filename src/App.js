@@ -10,12 +10,29 @@ class App extends React.Component {
 		this.todoItems=[
 			{ title : "Đi chơi gái", isComplete: true},
 			{ title : "Đi xét nghiệm", isComplete: true},
-			{ title : "Đi mua hòm"}
+			{ title : "Đi mua hòm", isComplete: true}
 		];
 	}
 
-	onItemClicked(event){
-		console.log("clicked",event);
+	onItemClicked(items){
+		return (event) => {
+			// console.log(items);
+			const isComplete = items.isComplete;
+			const { todoItems } = this.state;
+			// tại dòng này có nghĩa là khi click vào bạn sẽ biết được nó thay đổi isCpmplete ở vị trí dòng nào 
+			const index = todoItems.indexOf(items);
+			this.setState({
+				todoItems: [
+					...todoItems.slice(0,index),
+					{
+						...items,
+						isComplete: !isComplete
+					},
+					...todoItems.slice (index + 1)
+				]
+			})
+		}
+		
 	}
 
 	render() {
@@ -40,15 +57,16 @@ class App extends React.Component {
 		// 	)
 		// }
 		// Cách dùng or hoặc and để xét điều kiện trả ra 
+		const { todoItems } = this.state;
 		return ( <div className = "App">
-					{this.todoItems.length > 0 && this.todoItems.map((items, index) => 
+					{todoItems.length > 0 && todoItems.map((items, index) => 
 						<TodoItems 
 							key={index} 
 							item={items} 
-							onClick={this.onItemClicked}/>
+							onClick={this.onItemClicked(items)}/>
 						)
 					}
-					{this.todoItems.length === 0 && "Nothing"}
+					{todoItems.length === 0 && "Nothing"}
 				</div> )
 		// Ví dụ cụ thể về State 
 		// return ( <div className = "App">
