@@ -35,7 +35,7 @@ export default class TrafficLight extends React.Component {
 
     render(){
         const { currentColor } = this.state;
-        console.log("render...",currentColor);
+        // console.log("render...",currentColor);
         return (
             <div className="TrafficLight">
                 <div className={className('buld','red',{ 
