@@ -1,0 +1,21 @@
+@font-face {
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@100&display=swap'); /* IE9 Compat Modes */
+    
+  }
+
+
+.time{
+    
+    background: #222;
+    color: #fff;
+    padding: 8px;
+    text-align: center;
+    width: 300px;
+}
+.hours{
+    font-family: 'Work Sans', sans-serif;
+    font-size: 48px;
+}
