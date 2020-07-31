@@ -6,32 +6,23 @@ import TodoItems from './component/todoitems'
 class App extends React.Component {
 	constructor() {
 		super();
-		this.todoItems=[
+		this.state = {
+			todoItems: [
 			{ title : "Đi chơi gái", isComplete: true},
 			{ title : "Đi xét nghiệm", isComplete: true},
 			{ title : "Đi mua hòm", isComplete: true}
-		];
+		]}
 	}
 
-	onItemClicked(items){
-		return (event) => {
-			// console.log(items);
-			const isComplete = items.isComplete;
-			const { todoItems } = this.state;
-			// tại dòng này có nghĩa là khi click vào bạn sẽ biết được nó thay đổi isCpmplete ở vị trí dòng nào 
-			const index = todoItems.indexOf(items);
-			this.setState({
-				todoItems: [
-					...todoItems.slice(0,index),
-					{
-						...items,
-						isComplete: !isComplete
-					},
-					...todoItems.slice (index + 1)
-				]
-			})
-		}
-		
+	onItemClicked(index){
+		const arrList = [...this.state.todoItems]
+		arrList[index].isComplete = !arrList[index].isComplete
+		this.setState((prevState) => (
+			{
+			...prevState,
+			todoItems: arrList
+		}))
+
 	}
 
 	render() {
@@ -42,7 +33,7 @@ class App extends React.Component {
 						<TodoItems 
 							key={index} 
 							item={items} 
-							onClick={this.onItemClicked(items)}/>
+							onClick={this.onItemClicked.bind(this,index)}/>
 						)
 					}
 					{todoItems.length === 0 && "Nothing"}

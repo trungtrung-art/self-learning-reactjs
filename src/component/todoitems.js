@@ -14,7 +14,7 @@ export default class TodoItems extends React.Component {
     render(){
         // console.log(this.props)
         let { item , onClick} = this.props; // tạo item bằng this.props có nghĩa giá trị được truyền vào bên file App
-        // console.log(item)
+        // console.log(item) 
 
         return(
             <div onClick={onClick} className={className('todoList',{'todoList-done' : item.isComplete})}>
