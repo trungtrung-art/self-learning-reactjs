@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import nameForm from './component/form';
+import NameForm from './component/form';
 
 
 
@@ -9,8 +9,9 @@ class App extends React.Component {
 		super();
 	}
 	render() {
+		
 		return ( <div className = "App">
-					<nameForm/>
+					<NameForm />
 				</div> )
 	}
 	
