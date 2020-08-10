@@ -6,9 +6,29 @@
     font-weight: 300;
     font-size: 24px;
     color: #4f4f4f;
+    padding: 10px 5px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+}
+
+.todoList img{
+    width: 30px;
+}
+
+.todoList:last-child{
+    border-bottom: none;
+}
+
+.todoList > p{
+    margin: 0 0 0 10px;
+    
 }
 
 .todoList-done{
     text-decoration: line-through;
-    opacity: .2;
+    /* opacity: .3; */
+}
+
+.todoList-done p{
+    opacity: .3;
 }

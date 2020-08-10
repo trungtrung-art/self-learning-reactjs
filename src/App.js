@@ -1,6 +1,8 @@
 import React from 'react';
 import './App.css';
-import TodoItems from './component/todoitems'
+import TodoItems from './component/todoitems';
+import checkall from './images/down-arrow.svg';
+
 
 
 class App extends React.Component {
@@ -8,9 +10,9 @@ class App extends React.Component {
 		super();
 		this.state = {
 			todoItems: [
-			{ title : "Đi chơi gái", isComplete: true},
-			{ title : "Đi xét nghiệm", isComplete: true},
-			{ title : "Đi mua hòm", isComplete: true}
+			{ title : "Đi chơi gái", isComplete: false},
+			{ title : "Đi xét nghiệm", isComplete: false},
+			{ title : "Đi mua hòm", isComplete: false}
 		]}
 	}
 
@@ -29,6 +31,10 @@ class App extends React.Component {
 		// Cách dùng or hoặc and để xét điều kiện trả ra 
 		const { todoItems } = this.state;
 		return ( <div className = "App">
+					<div className="Header">
+						<img src={checkall} width={32} height={32} />
+						<input />
+					</div>	
 					{todoItems.length > 0 && todoItems.map((items, index) => 
 						<TodoItems 
 							key={index} 
