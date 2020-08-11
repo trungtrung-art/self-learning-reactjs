@@ -14,7 +14,7 @@ export default class nameForm extends React.Component{
 
     handleSubmit(event){
         console.log(this.state.value);
-        alert('A name was submitted: ' + this.state.value);
+        alert('Welcome to ReacrJS: ' + this.state.value);
         event.preventDefault()
         
     }
