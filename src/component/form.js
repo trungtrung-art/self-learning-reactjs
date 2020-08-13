@@ -1,33 +1,47 @@
 import React from 'react';
+import './form.css'
 
 export default class nameForm extends React.Component{
     constructor(props){
         super(props);
-        this.state = {value:''}
+        this.state = {
+            value: '',
+            aaaa: "c"
+        }
     }
     
-
-    handleChange(event) {
-        this.setState({value: event.target.value});
-        
+    handleChange(event, aaa){
+        this.setState({
+            value: event.target.value, 
+            aaaa: aaa
+        });
+    }
+    
+    FToC(value) {
+        let kq = (value - 32) * 5/9
+        let x = Math.round(kq)
+        return x
     }
 
-    handleSubmit(event){
-        console.log(this.state.value);
-        alert('Welcome to ReacrJS: ' + this.state.value);
-        event.preventDefault()
-        
+    CToF(value) {
+        let kq = value * 9/5 +32
+        let x = Math.round(kq)
+        return x
     }
 
 
     render() {
+        const {aaaa, value} = this.state
         return (
-            <form onSubmit={this.handleSubmit.bind(this)}>
+            <form>
             <label>
-                Tên:
-                <input type="text" value={this.state.value} onChange={this.handleChange.bind(this)} />
+                Độ C:
+                <input type="text" value={`${aaaa === "f" ? this.FToC(value) : value}`} onChange={(e)=> this.handleChange(e, 'c')} />
+            </label> 
+            <label>
+                Độ F:
+                <input type="text" value={`${aaaa === "c" ? this.CToF(value) : value}`} onChange={(e)=> this.handleChange(e, 'f')} />
             </label>
-            <input type="submit" value="Submit" />
             </form>
         );
     }
