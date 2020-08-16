@@ -36,11 +36,11 @@ export default class nameForm extends React.Component{
             <form>
             <label>
                 Độ C:
-                <input type="text" value={`${aaaa === "f" ? this.FToC(value) : value}`} onChange={(e)=> this.handleChange(e, 'c')} />
+                <input type="text" value={`${aaaa === "f" ? this.FToC(value) : value}`} onChange={(e)=> this.handleChange(e,'c')} />
             </label> 
             <label>
                 Độ F:
-                <input type="text" value={`${aaaa === "c" ? this.CToF(value) : value}`} onChange={(e)=> this.handleChange(e, 'f')} />
+                <input type="text" value={`${aaaa === "c" ? this.CToF(value) : value}`} onChange={(e)=> this.handleChange(e,'f')} />
             </label>
             </form>
         );
