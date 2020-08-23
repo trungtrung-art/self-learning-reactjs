@@ -1,20 +1,16 @@
 import React from 'react';
 import './App.css';
+import Accordian from './component/Accordian'
 
-export default class App extends Component {
-	render() {
-		return (
-		<div>
-			<h1>TASK</h1>
-			{tasks.map(item => (
-			<div key={item.id}>
-				Task name:
-				<strong onClick={() => { alert(item.content) }>
-				{item.content}
-				</strong>
-			</div>
-		))}
+export default function App(props){
+	return(
+		<div className="App">
+			<Accordian 
+				heading="Menu 1" 
+				content="Menu 1-1" />
+			<Accordian 
+				heading="Menu 2" 
+				content="Menu 2-1" />
 		</div>
-	);
-	}
+	)
 }
