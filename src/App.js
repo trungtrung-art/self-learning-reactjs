@@ -15,6 +15,12 @@ class App extends React.Component {
 			{ title : "Đi xét nghiệm", isComplete: false},
 			{ title : "Đi mua hòm", isComplete: false}
 		]}
+		this.inputElement = React.createRef();
+		
+	}
+
+	componentDidMount(){
+		this.inputElement.current.focus()
 	}
 
 	onItemClicked(index){
@@ -23,7 +29,6 @@ class App extends React.Component {
 		arrList[index].isComplete = !arrList[index].isComplete
 		this.setState((prevState) => (
 			{
-				
 			...prevState,
 			todoItems: arrList
 		}))
@@ -61,6 +66,7 @@ class App extends React.Component {
 					<div className="Header">
 						<img src={checkall} width={32} height={32} />
 						<input 
+						ref = {this.inputElement}
 						placeholder="Nhập công việc cần làm vào đây ?" 
 						onKeyUp={this.onKeyUp.bind(this)} 
 						value = {newItems}
