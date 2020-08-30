@@ -9,10 +9,29 @@
     padding: 10px 5px;
     border-bottom: 1px solid #eee;
     display: flex;
+    justify-content: space-between;
 }
 
 .todoList img{
+    margin-right: 10px;
+}
+
+.todoList .checkAndText{
+    display: flex;
+}
+
+.todoList .checkAndText p{
+    margin-left: 10px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.todoList .checkAndText img{
     width: 30px;
+}
+
+.todoList img{
+    width: 20px;
 }
 
 .todoList:last-child{

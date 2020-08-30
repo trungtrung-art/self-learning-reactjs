@@ -2,6 +2,8 @@ import React from 'react';
 import './App.css';
 import TodoItems from './component/todoitems';
 import checkall from './images/down-arrow.svg';
+import { node } from 'prop-types';
+
 
 
 
@@ -11,9 +13,9 @@ class App extends React.Component {
 		this.state = {
 			newItems: "",
 			todoItems: [
-			{ title : "Đi chơi gái", isComplete: false},
-			{ title : "Đi xét nghiệm", isComplete: false},
-			{ title : "Đi mua hòm", isComplete: false}
+			{ id: 1,title : "Đi chơi gái", isComplete: false},
+			{ id: 2, title : "Đi xét nghiệm", isComplete: false},
+			{ id: 3,title : "Đi mua hòm", isComplete: false}
 		]}
 		this.inputElement = React.createRef();
 		
@@ -53,6 +55,15 @@ class App extends React.Component {
 		}
 	}
 
+	deleteButton(id){
+		// console.log(id);
+		// let id = items.id
+		let todoItems = this.state.todoItems.filter(items => items.id !== id)
+		// console.log(todoItems);
+		this.setState({todoItems})
+		// console.log(id);
+	}
+
 	onChange(event){
 		this.setState({
 			newItems: event.target.value, //khi không enter thì nó sẽ lưu trữ text lên hàm newItems
@@ -75,8 +86,10 @@ class App extends React.Component {
 					{todoItems.length > 0 && todoItems.map((items, index) => 
 						<TodoItems 
 							key={index} 
-							item={items} 
-							onClick={this.onItemClicked.bind(this,index)}/>
+							item={items}
+							id = {items.id}
+							onClick={this.onItemClicked.bind(this,index)}
+							funcDel={this.deleteButton.bind(this,items.id)}/>
 						)
 					}
 					{todoItems.length === 0 && "Nothing"}
