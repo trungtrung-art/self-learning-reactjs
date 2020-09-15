@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Children } from 'react';
 import './Accordian.css'
 
 export default class Accordian extends React.Component{
@@ -17,14 +17,14 @@ export default class Accordian extends React.Component{
     }
 
     render(){
-        const { heading,content } = this.props;
+        const { heading, children } = this.props;
         const { isCollapse } = this.state;
         return (
             <div className="Collapse">
                 <div className="Heading" onClick={this.onClick.bind(this)}>
                     <h2>{heading}</h2>
                 </div>
-                {isCollapse && <div className="Content">{content}</div>}
+                {isCollapse && <div className="Content">{children}</div>}
             </div>
         )
     }

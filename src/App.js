@@ -7,10 +7,10 @@ export default function App(props){
 		<div className="App">
 			<Accordian 
 				heading="Menu 1" 
-				content="Menu 1-1" />
+				>menu 1</Accordian>
 			<Accordian 
 				heading="Menu 2" 
-				content="Menu 2-1" />
+				>menu 2</Accordian>
 		</div>
 	)
 }
