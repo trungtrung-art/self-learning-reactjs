@@ -8,37 +8,24 @@ export default class Counter extends React.Component{
         };
     }
 
-    sum(){
-        this.setState({
-            count: this.state.count + 1
-        });
-    }
-
-    minus(){
-        this.setState({
-            count: this.state.count - 1
-        });
-    }
-    render(){
-        console.log("counter render");
-        return(
-            <div className="counter">
-                <button onClick={this.minus.bind(this)}>-</button>
-                <span>{this.state.count}</span>
-                <button onClick={this.sum.bind(this)}>+</button>
-            </div>
-        )
-    }
-
     componentDidMount(){
-        console.log("counter did mount");
+        this.timerId = setInterval(() => {
+            this.setState({
+                count: this.state.count +  1
+            })
+        }, 1000)
     }
-
-    componentDidUpdate(){
-        console.log("counter did update");
-    }
+    
 
     componentWillUnmount(){
-        console.log("counter will unmount");
+        clearInterval(this.timerId)
+    }
+
+    render(){
+        return (
+            <div>
+                {this.props.render(this.state.count)}
+            </div>
+        )
     }
 }
